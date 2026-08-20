@@ -94,3 +94,39 @@ object demagogico {
   }
 }
 
+object moria {
+  var resultado = bonoNulo
+  var categoria = cadete
+  var faltas = 0
+
+  method sueldo() {
+    return self.sueldoNeto() + resultado.valor(self) 
+  }
+
+  method sueldoNeto() {
+    return categoria.sueldoNeto() * 1.30
+  }
+
+  method faltas(_faltas) {
+    faltas = _faltas
+  }
+
+  method faltas() {
+    return faltas
+  }
+
+  method categoria(_categoria) {
+    categoria = _categoria
+  }
+
+  method categoria() {
+    return categoria
+  }
+  method resultado(_resultado) {
+    resultado = _resultado
+    
+  }
+ method resultado() {
+  return resultado
+ }
+}
