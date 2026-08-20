@@ -154,3 +154,55 @@ object medioTiempo {
     self.sueldoNeto(categoria.sueldoNeto() / 2) 
   }
 }
+
+object roque {
+  var resultado = bonoNulo
+
+  method resultado(_resultado) {
+    resultado = _resultado
+  }
+  method resultado() {
+    return resultado
+  }
+
+  method sueldoNeto() {
+    return 20000 
+  }
+  
+  method sueldo() {
+    return self.sueldoNeto() + resultado.valor(self) + 9000
+  }
+}
+
+object ernesto {
+  var categoria = cadete
+  var presentismo = bonoNulo
+
+  method faltas() {
+    return 0
+  }
+
+  method sueldoNeto() {
+    return categoria.sueldoNeto()
+  }
+
+  method sueldo() {
+    return self.sueldoNeto() + presentismo.valor(self)
+  }
+
+  method categoria(_categoria) {
+    categoria = _categoria
+  }
+
+  method categoria() {
+    return categoria
+  }
+
+  method presentismo(_presentismo) {
+    presentismo = _presentismo
+  }
+
+  method presentismo() {
+    return presentismo
+  }
+}
