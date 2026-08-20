@@ -97,7 +97,7 @@ object demagogico {
 object moria {
   var resultado = bonoNulo
   var categoria = cadete
-  var faltas = 0
+  
 
   method sueldo() {
     return self.sueldoNeto() + resultado.valor(self) 
@@ -107,14 +107,7 @@ object moria {
     return categoria.sueldoNeto() * 1.30
   }
 
-  method faltas(_faltas) {
-    faltas = _faltas
-  }
-
-  method faltas() {
-    return faltas
-  }
-
+  
   method categoria(_categoria) {
     categoria = _categoria
   }
@@ -129,4 +122,35 @@ object moria {
  method resultado() {
   return resultado
  }
+}
+
+object vendedor {
+ var sueldoNeto = 16000
+ method activarAumentoPorMuchasVentas() {
+    self.sueldoNeto(self.sueldoNeto() * 1.20)
+  }
+ method sueldoNeto() {
+    return sueldoNeto
+  }
+
+ method sueldoNeto(_sueldoNeto) {
+    sueldoNeto = _sueldoNeto
+  }
+method desactivarAumentoPorMuchasVentas() {
+  self.sueldoNeto(16000)
+  }
+
+}
+
+object medioTiempo {
+  var sueldoNeto = 0
+  method sueldoNeto() {
+    return sueldoNeto
+  }
+  method sueldoNeto(_sueldoNeto) {
+    sueldoNeto = _sueldoNeto
+  }
+  method categoriaBase(categoria){
+    self.sueldoNeto(categoria.sueldoNeto() / 2) 
+  }
 }
