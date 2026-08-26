@@ -125,34 +125,37 @@ object moria {
 }
 
 object vendedor {
- var sueldoNeto = 16000
+ var aumentoPorMuchasVentas = false
  method activarAumentoPorMuchasVentas() {
-    self.sueldoNeto(self.sueldoNeto() * 1.20)
+    self.aumentoPorMuchasVentas(true)
   }
  method sueldoNeto() {
-    return sueldoNeto
+    return if(aumentoPorMuchasVentas){
+      16000 * 1.25 
+    }else{
+      16000
+    }
   }
 
- method sueldoNeto(_sueldoNeto) {
-    sueldoNeto = _sueldoNeto
-  }
+method aumentoPorMuchasVentas(_aumentoPorMuchasVentas) {
+  aumentoPorMuchasVentas = _aumentoPorMuchasVentas
+}
 method desactivarAumentoPorMuchasVentas() {
-  self.sueldoNeto(16000)
+  self.aumentoPorMuchasVentas(false)
   }
 
 }
 
 object medioTiempo {
-  var sueldoNeto = 0
+  var categoria = null
   method sueldoNeto() {
-    return sueldoNeto
+    return categoria.sueldoNeto() / 2
   }
-  method sueldoNeto(_sueldoNeto) {
-    sueldoNeto = _sueldoNeto
+  
+  method categoriaBase(_categoria){
+    categoria = _categoria
   }
-  method categoriaBase(categoria){
-    self.sueldoNeto(categoria.sueldoNeto() / 2) 
-  }
+
 }
 
 object roque {
