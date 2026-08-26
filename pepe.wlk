@@ -1,10 +1,19 @@
 object pepe {
-    var presentismo = null
-    var resultado = null 
+    var presentismo = bonoNulo
+    var resultado = bonoNulo
     var categoria = cadete
-	method sueldo(){
-        return categoria.sueldoNeto() + resultado.bonoResultado(categoria.sueldoNeto())
+    var faltas = 0
+	method sueldoNeto (){
+        return categoria.sueldoNeto() 
     }
+
+    method sueldo() {
+        return self.sueldoNeto() + resultado.valor(self) + presentismo.valor(self)
+    }
+     method categoria() {
+        return categoria
+  }
+
     method categoria(_categoria) {
         categoria = _categoria
       
@@ -12,9 +21,22 @@ object pepe {
     method presentismo(_presentismo) {
         presentismo = _presentismo
     }
+    method presentismo() {
+        return presentismo
+    }
+    method faltas(_faltas) {
+        faltas = _faltas
+    }
+    method faltas() {
+       return faltas
+  } 
 
     method resultado(_resultado) {
       resultado = _resultado
+    }
+
+    method resultado() {
+      return resultado
     }
 }
 
@@ -31,11 +53,22 @@ object gerente {
 }
 
 object porcentaje {
-  method bonoResultado(neto){
-    return neto * 1.10
+  method valor(empleado){
+    return empleado.sueldoNeto() * 0.1 
   }
 }
 
 object montoFijo {
-  
+  method valor(empleado){
+    return 800
+  } 
 }
+
+object bonoNulo {
+  method valor(empleado){
+    return 0
+  } 
+}
+
+
+
