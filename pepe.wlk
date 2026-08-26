@@ -70,5 +70,27 @@ object bonoNulo {
   } 
 }
 
+object normal {
+  method valor(empleado) {
+    if (empleado.faltas() == 0) {
+      return 2000
+    } else if (empleado.faltas() == 1) {
+      return 1000
+    } else {
+      return 0
+    }
+  }
+}
 
+object ajuste {
+  method valor(empleado) {
+    return if (empleado.faltas() == 0) 100 else 0
+  }
+}
+
+object demagogico {
+  method valor(empleado) {
+    return if (empleado.sueldoNeto() < 18000) 500 else 300
+  }
+}
 
