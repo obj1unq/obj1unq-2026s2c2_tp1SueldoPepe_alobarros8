@@ -166,7 +166,7 @@ object roque {
   }
 
   method sueldoNeto() {
-    return 20000 
+    return 28000 
   }
   
   method sueldo() {
